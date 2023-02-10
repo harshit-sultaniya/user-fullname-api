@@ -1,9 +1,9 @@
 class Api::UserController < ApplicationController
        def index
-        @temp = Hash.new
+        @details = Hash.new
         @users = User.find_by(email: params[:email])
-        @temp = {:fullname => "#{@users.fname} #{@users.lname}",:age => "#{@users.age}"}
-        render json: @temp
+        @details = {:fullname => "#{@users.fname} #{@users.lname}",:age => "#{@users.age}"}
+        render json: @details
        end
        def create
         @user=User.create(user_params)
